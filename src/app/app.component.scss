@@ -1,0 +1,58 @@
+html,
+// body {
+// 	height: 100%;
+// 	margin: 0;
+// 	padding: 0;
+// }
+
+// body {
+// 	height: 100% !important;
+// 	min-height: 100vh;
+// 	background-color: #e5e5e5;
+// 	font-family: 'Roboto', sans-serif;
+// }
+
+// html, body, app-root, .app-frame {
+//     overflow: hidden;
+//     margin: 0;
+//     height: 100%;
+// }
+
+body {
+	height: 100% !important;
+	min-height: 100vh;
+	background-color: #e5e5e5;
+	
+}
+.op-bg{
+background: #FCFCFF 0% 0% no-repeat padding-box;
+opacity: 1;
+font-family: 'Open Sans', sans-serif;
+}
+
+.small-blob{
+	top: 213px;
+	left: -179px;
+	width: 571px;
+	height: 572px;
+	background: transparent url('./../assets/imgs/blob-small.svg') 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.circle{
+	top: -227.9068603515625px;
+left: 852px;
+width: 1183px;
+height: 1192px;
+// transform: matrix(0.12, -0.99, 0.99, 0.12, 0, 0);
+background: transparent url('./../assets/imgs/circle.svg') 0% 0% no-repeat padding-box;
+opacity: 0.5;
+}
+
+.op-icon{
+	top: 27px;
+left: 120px;
+width: 123px;
+height: 123px;
+background: transparent url('./../assets/imgs/logo.png') 0% 0% no-repeat padding-box;
+opacity: 1;
+}

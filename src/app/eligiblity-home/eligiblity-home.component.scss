@@ -1,0 +1,41 @@
+.eligible-card {
+    max-width: 400px;
+  }
+  
+  .eligible-header-image {
+    background-size: cover;
+  }
+  img{
+      opacity: 1;
+  }
+  mat-slider{
+      width: 300px;
+  }
+  .loan-card{
+    max-width: 300px;
+    max-height: 250px;
+    top: 6em;
+    background-color: #914ed4;
+  }
+  .loan-content{
+      top: 5em;
+  }
+  .get-btn{
+    box-shadow: 0px 0px 20px #00000033;
+    border: 2px solid #663399;
+    border-radius: 24px;
+    opacity: 1;
+  }
+  .info-card{
+      max-width: 391px;
+      max-height: 253px;
+      
+  }
+  mat-card-image{
+      width: unset !important;
+      margin: unset !important;
+  }
+  .hover{
+    background-color: #914ed4;
+    cursor: pointer;
+  }

@@ -1,0 +1,44 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+@mixin html-theme($theme) {
+    & {
+      $background: map-get($theme, background);
+      $foreground: map-get($theme, foreground);
+  
+      background-color: mat-color($background, background);
+      color: mat-color($foreground, text);
+    }
+    mat-card{
+        $background: map-get($theme, background);
+        $foreground: map-get($theme, foreground);
+    
+        background-color: mat-color($background, background);
+        color: mat-color($foreground, text);
+    }
+  }
+
+  .light-theme {
+    $lt-primary: mat-palette($mat-indigo);
+    $lt-accent:  mat-palette($mat-pink, A200, A100, A400);
+    $lt-theme:   mat-light-theme($lt-primary, $lt-accent);
+  
+    @include angular-material-theme($lt-theme);
+  
+    @at-root main.light-theme {
+      @include html-theme($lt-theme);
+    }
+  }
+
+  .dark-theme {
+    $dark-primary: mat-palette($mat-brown, 700);
+    $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+    $dark-warn:    mat-palette($mat-deep-orange);
+    $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  
+    @include angular-material-theme($dark-theme);
+  
+    @at-root main.dark-theme {
+      @include html-theme($dark-theme);
+    }
+  }

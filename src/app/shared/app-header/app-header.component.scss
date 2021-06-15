@@ -1,0 +1,29 @@
+.app-icon{
+    background: transparent url('./../../../assets/imgs/logo.png') 0% 0% no-repeat padding-box;
+opacity: 1;
+
+height: 7rem;
+}
+.header{
+    position: sticky;
+    position: -webkit-sticky; 
+    top: 0; 
+    z-index: 1000; 
+    height: 3rem;
+}
+.tertiary-btn{
+	box-shadow: 0px 0px 20px #00000033;
+border: 2px solid #663399;
+border-radius: 24px;
+opacity: 1;
+}
+.primary-btn{
+    background: transparent linear-gradient(90deg, #9F62C9 0%, #663399 100%) 0% 0% no-repeat padding-box;
+box-shadow: 0px 0px 20px #00000033;
+border-radius: 24px;
+opacity: 1;
+}
+a:hover {
+    color: #801e8d;
+    cursor: pointer;
+  }

@@ -1,0 +1,158 @@
+<div style="overflow-y: auto; height: 30rem;" fxLayout="column" fxLayoutGap="2em" fxFlex>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div fxLayout="column" fxLayoutAlign="space-evenly center">
+            <img src="./../../assets/imgs/WemakeitSuperSim.svg" alt="wemake" width="407" height="98">
+            <img src="/../../assets/imgs/collect_img-video.png" alt="collect" width="652" height="365">
+        </div>
+        <div fxLayout="row">
+            <mat-card class="eligible-card mat-elevation-z5">
+                <mat-card-header>
+                    <div mat-card-avatar class="eligible-header-image"></div>
+                    <mat-card-title>Eligiblity Calculator</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                        <div fxLayout="column" fxLayoutAlign="space-between start">
+                            <label>Monthly Income</label>
+                            <h2>{{monthlyIncome | currency:'INR':'symbol-narrow':'4.2-2'}}</h2>
+                            <mat-slider step="100" min="100000" max="300000" aria-label="units"
+                                [(ngModel)]="monthlyIncome" (change)="checkEMI()"></mat-slider>
+
+                            <span fxLayout="row" fxLayoutGap="10rem">
+                                <label>{{100000 | currency:'INR':'symbol-narrow':'4.2-2'}}</label>
+                                <label>{{300000 | currency:'INR':'symbol-narrow':'4.2-2'}}</label>
+                            </span>
+                        </div>
+
+
+                        <div fxLayout="column" fxLayoutAlign="space-between start">
+                            <label>Monthly Expense</label>
+                            <h2>{{monthlyExpense | currency:'INR':'symbol-narrow':'4.2-2'}}</h2>
+                            <mat-slider step="100" min="10000" max="100000" aria-label="units"
+                                [(ngModel)]="monthlyExpense" (change)="checkEMI()"></mat-slider>
+                        </div>
+
+                        <label>Repayment Tenure</label>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Months</mat-label>
+                            <mat-select [(ngModel)]="tenure" [(value)]="tenure" (selectionChange)="checkEMI()">
+                                <mat-option *ngFor="let month of months" [value]="month">
+                                    {{month}} &nbsp; Months
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-slide-toggle [(ngModel)]="isCheckedExisting">Do you have existing loans?</mat-slide-toggle>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>EMI of existing loan (optional)</mat-label>
+                            <input matInput [disabled]="!isCheckedExisting" [(ngModel)]="exitLoanAmount"
+                                autocomplete="off" (ngModelChange)="checkEMI()">
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="loan-card mat-elevation-z5">
+                <mat-card-content class="loan-content">
+                    <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                        <div fxLayout="column" fxLayoutAlign="space-between start">
+                            <label>Loan Amount</label>
+                            <h2>{{loanAmount | currency:'INR':'symbol-narrow':'4.2-2'}}</h2>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-between start">
+                            <label>Your EMI will be</label>
+                            <h2>{{emiAmount | currency:'INR':'symbol-narrow':'4.2-2'}}</h2>
+                        </div>
+                        <button mat-raised-button class="get-btn">Get Money</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div fxLayout="column" fxLayoutGap="3rem" fxLayoutAlign="space-evenly center">
+            <div fxLayout="row" fxLayoutGap="3rem" fxLayoutAlign="space-evenly center">
+                <mat-card (mouseover)="id1 = true" (mouseleave)="id1 = false" [ngClass]="{'hover': id1}"
+                    class="info-card mat-elevation-z8">
+
+                    <mat-card-content class="info-content">
+                        <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                            <img src="./../../assets/imgs/Get_Paid_Instantly.png" width="90" height="90"
+                                alt="Get_Paid_Instantly">
+                            <strong>Quick Cash disbursement</strong>
+                            <label>Get term loans that your business needs within 72 hours</label>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card style=" top: 6em" (mouseover)="id2 = true" (mouseleave)="id2 = false"
+                    [ngClass]="{'hover': id2}" class="info-card mat-elevation-z8">
+
+                    <mat-card-content class="info-content">
+                        <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                            <img src="./../../assets/imgs/freelancer.png" width="90" height="90"
+                                alt="Get_Paid_Instantly">
+                            <strong>Ace your business finances</strong>
+                            <label>Manage banking, accounting & everything in between on one platform</label>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="3rem" fxLayoutAlign="space-evenly center">
+                <mat-card (mouseover)="id3 = true" (mouseleave)="id3 = false" [ngClass]="{'hover': id3}"
+                    class="info-card mat-elevation-z8">
+
+                    <mat-card-content class="info-content">
+                        <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                            <img src="./../../assets/imgs/Low_interest_rate.png" width="90" height="90"
+                                alt="Get_Paid_Instantly">
+                            <strong>Low Interest rate</strong>
+                            <label>Achieve your financial goals with an amazing interest rate starting at 13% per
+                                annum</label>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card (mouseover)="id4 = true" (mouseleave)="id4 = false" [ngClass]="{'hover': id4}"
+                    style=" top: 6em" class="info-card mat-elevation-z8">
+
+                    <mat-card-content class="info-content">
+                        <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                            <img src="./../../assets/imgs/Covid.png" width="90" height="90" alt="Get_Paid_Instantly">
+                            <strong>Loans to fight COVID-19</strong>
+                            <label>Zero EMI for first 3 months on Back-to-Business loans of upto 1 lakh</label>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="3rem" fxLayoutAlign="space-evenly center">
+                <mat-card (mouseover)="id5 = true" (mouseleave)="id5 = false" [ngClass]="{'hover': id5}"
+                    style="right: 13em;" class="info-card mat-elevation-z8">
+
+                    <mat-card-content class="info-content">
+                        <div fxLayout="column" fxLayoutGap="1rem" fxFlex>
+                            <img src="./../../assets/imgs/Secure.png" width="90" height="90" alt="Get_Paid_Instantly">
+                            <strong>Zero Paperwork</strong>
+                            <label>Get started instantly by submitting only your basic details & bank statements</label>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <div></div>
+            </div>
+        </div>
+
+        <div fxLayout="column" fxLayoutGap="3rem" fxLayoutAlign="space-evenly center" style="width:20em">
+            <h2>Boost your business with Open</h2>
+            <label>Get your hands on a term loan that’s crafted for your business</label>
+            <button mat-raised-button class="get-btn">Get an Open Account</button>
+
+        </div>
+    </div>
+
+
+</div>
